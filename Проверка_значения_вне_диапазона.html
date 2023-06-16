@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка значения вне диапазона</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        let age = prompt('Введите свой возраст:', '');
+
+        if (!(age >= 14 && age <= 90)) {
+            alert(age)
+        }
+        // if (age < 14 || age > 90) {
+        //     alert(age);
+        // }
+    </script>
+</body>
+</html>

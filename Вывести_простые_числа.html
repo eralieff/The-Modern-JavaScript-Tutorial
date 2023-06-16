@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вывести простые числа</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        let inputIntervalNumber = prompt('Введите интервальное число', '');
+        let primeNumbers = "";
+
+        for (let i = 2; i < inputIntervalNumber; i++) {
+            if (i == 2 || i == 3 || i == 5 || i == 7) {
+                primeNumbers += String(i) + ' ';
+            }
+            else if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0) {
+                primeNumbers += String(i) + ' ';
+            }
+        }
+        alert(primeNumbers);
+    </script>
+</body>
+</html>
