@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создайте калькулятор</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let calculator = {
+            read() {
+                this.number1 = +prompt('Enter the first number', 0);
+                this.number2 = +prompt('Enter the second number', 0);
+            },
+            
+            sum() {
+                return this.number1 + this.number2;  
+            },
+
+            mul() {
+                return this.number1 * this.number2;
+            }
+        };
+
+        calculator.read();
+        alert( calculator.sum() );
+        alert( calculator.mul() );
+    </script>
+</body>
+</html>

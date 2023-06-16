@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цепь вызовов</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let ladder = {
+            step: 0,
+
+            up: function() {
+                this.step++;
+                return this;
+            },
+
+            down() {
+                this.step--;
+                return this;
+            },
+
+            showStep: function() { // показывает текущую ступеньку
+                alert( this.step );
+                return this;
+            }
+        };
+
+        ladder
+              .up()
+              .up()
+              .down()
+              .showStep() // 1
+              .down()
+              .showStep(); // 0
+    </script>
+</body>
+</html>

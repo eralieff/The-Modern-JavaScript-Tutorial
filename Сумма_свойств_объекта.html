@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сумма свойств объекта</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        
+        function getSalaries(obj) {
+            let totalSalary = 0;
+
+            for (let prop in obj) {
+                totalSalary += obj[prop];
+            }
+            
+            return totalSalary;
+        }
+
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130
+        };
+
+        alert(getSalaries(salaries));
+    </script>
+</body>
+</html>

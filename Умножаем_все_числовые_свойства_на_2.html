@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Умножаем все числовые свойства на 2</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function multiplyNumeric(obj) {
+            for (let prop in obj) {
+                checkNumeric(obj, prop);
+            }
+        }
+
+        function checkNumeric(obj, prop) {
+            if (typeof obj[prop] == 'number') {
+                obj[prop] *= 2;
+            }
+        }
+
+        let menu = {
+            width: 200,
+            height: 300,
+            title: "My menu"
+        };
+
+        multiplyNumeric(menu);
+    </script>
+</body>
+</html>
