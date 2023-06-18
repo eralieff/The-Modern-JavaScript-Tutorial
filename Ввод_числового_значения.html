@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ввод числового значения</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function readNumber() {
+            while (true) {
+                let number = prompt('Введите число', 0);
+                
+                if (number === null || number === "") {
+                    alert(`Число: ${null}`);
+                    return null;
+                }
+                else if (isFinite(number)) {
+                    alert(`Число: ${+number}`);
+                    return +number;
+                    break;
+                }
+            }
+        }
+
+        readNumber();
+    </script>
+</body>
+</html>
