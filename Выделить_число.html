@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выделить число</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function extractCurrencyValue(str) {
+            if (isNaN(str)) {
+                return Number(str.slice(1));
+            } else {
+                return Number(str);
+            }
+        }
+
+        alert(extractCurrencyValue('$120'));
+    </script>
+</body>
+</html>

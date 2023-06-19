@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка на спам</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function checkSpam(str) {
+            return str.toUpperCase().includes('viagra'.toUpperCase()) || str.toUpperCase().includes('XXX'.toUpperCase())
+        }
+
+        alert(checkSpam('buy ViAgRA now'));
+        alert(checkSpam('free xxxxx'));
+        alert(checkSpam('innocent rabbit'));
+    </script>
+</body>
+</html>

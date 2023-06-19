@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сумма введённых чисел</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function sumInput() {
+            let numberArray = [];
+
+            while (true) {
+                let number = prompt('Введите число', 0);
+
+                if (number === null || number === "") {
+                    break;
+                }
+                else if (Number.isFinite(+number)) {
+                    numberArray.push(+number);
+                }
+            }
+
+            let sumNumbers = Number(0);
+
+            for (let number of numberArray) {
+                sumNumbers += +number;
+            }
+
+            return sumNumbers;
+        }
+
+        alert(sumInput());
+    </script>
+</body>
+</html>

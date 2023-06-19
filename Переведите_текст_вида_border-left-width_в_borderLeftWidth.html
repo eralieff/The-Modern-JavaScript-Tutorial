@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переведите текст вида border-left-width в borderLeftWidth</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function camelize(style) {
+            let arr = style.split('-');
+            
+            for (let i = 0; i < arr.length; i++) {
+                if (i != 0) {
+                    arr[i] = String(arr[i]).slice(0, 1).toUpperCase() + String(arr[i]).slice(1);
+                }
+            }
+
+            return arr.join('');
+        }
+
+        alert(camelize("background-color"));
+        alert(camelize("list-style-image"));
+        alert(camelize("-webkit-transition"));
+    </script>
+</body>
+</html>

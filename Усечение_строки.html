@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Усечение строки</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function truncate(str, maxlength) {
+            if (str.length > maxlength) {
+                return alert(str.slice(0, maxlength - 1) + '…');
+            } else {
+                return alert(str);
+            }
+        }
+
+        truncate('Вот, что мне хотелось бы сказать на эту тему:', 20)
+        truncate('Всем привет!', 20);
+    </script>
+</body>
+</html>
