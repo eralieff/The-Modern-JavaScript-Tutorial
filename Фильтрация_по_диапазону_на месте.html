@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильтрация по диапазону "на месте"</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function filterRangeInPlace(arr, a, b) {
+            for (let i = arr.length - 1; i >= 0; i--) {
+                if (!(a <= arr[i] && arr[i] <= b)) {
+                    arr.splice(i, 1);
+                }
+            }
+        }
+
+        let arr = [5, 3, 8, 1];
+
+        filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+        alert( arr ); // [3, 1]
+    </script>
+</body>
+</html>

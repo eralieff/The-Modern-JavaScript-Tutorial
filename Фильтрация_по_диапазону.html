@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильтрация по диапазону</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        
+        function filterRange(arr, number1, number2) {
+            let newArray = [];
+
+            arr.forEach(currentNumber => {
+                if (currentNumber >= number1 && currentNumber <= number2) {
+                    newArray.push(currentNumber);
+                }
+            });
+
+            return newArray;
+
+            // return arr.filter(item => (number1 <= item && item <= number2));
+        }
+
+        let arr = [5, 3, 8, 1];
+
+        let filtered = filterRange(arr, 1, 4);
+
+        alert( filtered ); // 3,1 (совпадающие значения)
+
+        alert( arr ); // 5,3,8,1 (без изменений)
+    </script>
+</body>
+</html>

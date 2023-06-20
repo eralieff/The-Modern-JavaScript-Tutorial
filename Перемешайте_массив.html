@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перемешайте массив</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let arr = [1, 2, 3];
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function shuffle(arr) {   // [2, 3, 1]
+            let randomArray = []; // [2, 0, 1]
+
+            while (true) {
+                if (randomArray.length == arr.length) {
+                    break;
+                }
+
+                let randomNumber = getRandomInt(arr.length);
+
+                let isUniqueNumber = randomArray.findIndex(item => item == randomNumber);
+
+                if (isUniqueNumber == -1) {
+                    randomArray.push(randomNumber);
+                }
+            }
+
+            for (let i = 0; i < arr.length; i++) {
+                let tmp = arr[randomArray[i]]; // 1
+                arr[randomArray[i]] = arr[i]; // 1) arr[2] = arr[0]  arr[0] = arr[1]  arr[1] = arr[2]
+                arr[i] = tmp;
+            }
+        }
+
+        // подсчёт вероятности для всех возможных вариантов
+        let count = {
+            '123': 0,
+            '132': 0,
+            '213': 0,
+            '231': 0,
+            '321': 0,
+            '312': 0
+        };
+
+        for (let i = 0; i < 1000000; i++) {
+            let array = [1, 2, 3];
+            shuffle(array);
+            count[array.join('')]++;
+        }
+
+        // показать количество всех возможных вариантов
+        for (let key in count) {
+            console.log(`${key}: ${count[key]}`);
+        }
+    </script>
+</body>
+</html>

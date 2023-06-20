@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скопировать и отсортировать массив</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function copySorted(arr) {
+            return arr.slice().sort( (a, b) => a.localeCompare(b) );
+        }
+
+        let arr = ["HTML", "JavaScript", "CSS"];
+
+        let sorted = copySorted(arr);
+
+        alert( sorted ); // CSS, HTML, JavaScript
+        alert( arr ); // HTML, JavaScript, CSS (без изменений)
+    </script>
+</body>
+</html>
