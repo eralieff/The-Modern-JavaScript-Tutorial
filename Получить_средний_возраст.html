@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Получить средний возраст</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function getAverageAge(arr) {
+            // let allAges = 0;
+            // arr.map(item => allAges += item.age);
+            // return allAges / arr.length;
+
+            return arr.reduce((allAges, currentItem) => allAges + currentItem.age, 0) / arr.length;
+        }
+
+        let vasya = { name: "Вася", age: 25 };
+        let petya = { name: "Петя", age: 30 };
+        let masha = { name: "Маша", age: 29 };
+
+        let arr = [ vasya, petya, masha ];
+
+        alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+    </script>
+</body>
+</html>
