@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сколько сегодня прошло секунд?</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function getSecondsToday() {
+            let date = new Date();
+            return (date.getHours() * 60 * 60) + (date.getMinutes() * 60) + (date.getSeconds());
+        }
+
+        alert( getSecondsToday() );
+    </script>
+</body>
+</html>

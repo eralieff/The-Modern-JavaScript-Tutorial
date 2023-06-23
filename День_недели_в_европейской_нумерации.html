@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День недели в европейской нумерации</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function getLocalDay(date) {
+            return date.getDay() || 7;
+        }
+
+        let date = new Date(2012, 0, 3);  // 3 января 2012 года
+
+        alert( getLocalDay(date) );       // вторник, нужно показать 2
+    </script>
+</body>
+</html>

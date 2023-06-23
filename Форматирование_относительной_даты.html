@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форматирование относительной даты</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function formatDate(date) {
+            let diffMilisec = Date.now() - date;
+            console.log(diffMilisec);
+
+            if (diffMilisec <= 1) {
+                return "прямо сейчас";
+            }
+            else if (diffMilisec / 1000 < 60) {
+                return `${diffMilisec / 1000} сек. назад`;
+            }
+            else if (diffMilisec / 1000 < 3600) {
+                return `${Math.trunc(diffMilisec / 1000 / 60)} мин. назад`;
+            }
+            else {
+                return `${date.getDate() < 10 ? 0 + String(date.getDate()) : date.getDate()}.${date.getMonth() < 10 ? 0 + String(date.getMonth()) : date.getMonth()}.${String(date.getFullYear()).slice(2)} ${date.getHours() < 10 ? 0 + String(date.getHours()) : date.getHours()}:${date.getMinutes() < 10 ? 0 + String(date.getMinutes()) : date.getMinutes()}`;
+            }
+        }
+
+        alert( formatDate(new Date(new Date - 1)) ); // "прямо сейчас"
+
+        alert( formatDate(new Date(new Date - 30 * 1000)) ); // "30 сек. назад"
+
+        alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. назад"
+
+        // вчерашняя дата вроде 31.12.2016, 20:00
+        alert( formatDate(new Date(new Date - 86400 * 1000)) );
+    </script>
+</body>
+</html>
