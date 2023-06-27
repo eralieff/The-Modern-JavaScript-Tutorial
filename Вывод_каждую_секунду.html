@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вывод каждую секунду</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /* Используя setInterval
+        function printNumbers(from, to) {
+            setInterval(() => from < to ? alert(from++) : clearInterval(), 1000, from, to);
+        }
+        */
+
+        /* Используя рекурсивный setTimeout
+        function printNumbers(from, to) {
+            let timerId = setTimeout(function count() {
+                if (from < to) {
+                    alert(from++);
+                    timerId = setTimeout(count, 1000, from, to);
+                } else {
+                    clearInterval();
+                }
+            }, 1000, from, to);
+        }
+        */
+
+        printNumbers(4, 12);
+    </script>
+</body>
+</html>
