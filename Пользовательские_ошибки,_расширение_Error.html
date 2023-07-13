@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользовательские ошибки, расширение Error</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /*
+        // 2.1 Расширение Error
+        // Создайте пользовательскую ошибку, которая расширяет встроенный объект Error. У этой ошибки должно быть своё имя и сообщение. Напишите функцию, которая выбрасывает эту ошибку, и используйте "try...catch" для её обработки.
+
+        function throwCustomError() {
+            const customError = new Error("Сообщение пользовательской ошибки");
+            customError.name = "CustomError";
+
+            throw customError;
+        }
+
+        try {
+            throwCustomError();
+        } catch (error) {
+            console.log(error.name);
+            console.log(error.message);
+        }
+        */
+
+        /*
+        // 2.2 Дальнейшее наследование
+        // Расширьте пользовательскую ошибку из предыдущего задания, создав наследника от неё. У этой новой ошибки также должно быть своё имя и сообщение. Напишите функцию, которая выбрасывает новую ошибку, и используйте "try...catch" для её обработки.
+
+        class SecondCustomError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = 'SecondCustomError';
+                this.message = 'Сообщение пользовательской ошибки 2';
+            }
+        }
+
+        function throwCustomError() {
+            const customError = new Error("Сообщение пользовательской ошибки");
+            customError.name = "CustomError";
+            throw customError;
+        }
+
+        try {
+            throwCustomError();
+        } catch (error) {
+            console.log(error.name);
+            console.log(error.message);
+        }
+
+        function throwSecondCustomError() {
+            throw new SecondCustomError();
+        }
+
+        try {
+            throwSecondCustomError();
+        } catch (error) {
+            console.log(error.name);
+            console.log(error.message);
+        }
+        */
+
+        /*
+        // 2.3 Обёртывание исключений
+        // Напишите функцию, которая обертывает исключение одной ошибки в другую пользовательскую ошибку. В блоке "try" вызовите функцию, которая выбрасывает исключение, и в блоке "catch" оберните это исключение в новую ошибку с дополнительной информацией.
+
+        function wrapException(exception, additionalInfo) {
+            const customError = new Error(`Дополнительная информация: ${additionalInfo}`);
+            customError.name = 'CustomError';
+
+            return customError;
+        }
+
+        function throwException() {
+            throw new Error('Выброс исключении');
+        }
+
+        try {
+            throwException();
+        } catch (error) {
+            const wrappedError = wrapException(error, 'Дополнительная информация об ошибке');
+            console.log(wrappedError.name);
+            console.log(wrappedError.message);
+        }
+        */
+    </script>
+</body>
+</html>

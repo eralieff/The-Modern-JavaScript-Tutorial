@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка ошибок, "try...catch"</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /*
+        // 1.1 Синтаксис «try...catch»
+        // Напишите функцию, которая использует синтаксис "try...catch" для обработки ошибок. Внутри функции попробуйте выполнить код, который может вызвать исключение, и используйте блок "catch" для вывода сообщения об ошибке в консоль.
+
+        try {
+            console.log(1);
+            console.log(2);
+            asdf;
+            console.log(3);
+        } catch (error) {
+            console.log(error);
+        }
+        */
+
+        /*
+        // 1.2 Объект ошибки
+        // Напишите функцию, которая генерирует ошибку и выводит информацию об объекте ошибки в консоль, включая его свойства, такие как имя (name) и сообщение (message).
+
+        try {
+            console.log(1);
+            console.log(2);
+            asdf;
+            console.log(3);
+        } catch (error) {
+            console.log(error.name);
+            console.log(error.message);
+        }
+        */
+
+        /*
+        // 1.3 Блок «catch» без переменной
+        // Напишите функцию, которая содержит блок "catch" без переменной. Внутри блока "catch" просто выведите сообщение об ошибке в консоль.
+
+        try {
+            console.log(1);
+            console.log(2);
+            asdf;
+            console.log(3);
+        } catch {
+            console.log('Это блок catch');
+        }
+        */
+
+        /*
+        // 1.4 Использование «try...catch»
+        // Создайте функцию, которая использует "try...catch" для обработки ошибок ввода данных пользователем. Внутри блока "try" попросите пользователя ввести число, а в блоке "catch" выведите сообщение об ошибке, если введено не число.
+
+        try {
+            let number = +prompt('Введите число');
+            if (isNaN(number)) {
+                throw new Error('Введенное данные не является числом!')
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+        */
+
+        /*
+        // 1.5 Генерация собственных ошибок
+        // Напишите функцию, которая генерирует исключение собственной ошибки, когда передан аргумент некорректного типа. Проверьте, что функция выбрасывает ошибку с правильным сообщением, и обработайте эту ошибку с использованием "try...catch".
+
+        function validateInput(data) {
+            if (typeof data !== 'number' || isNaN(data)) {
+                throw new Error('Некорректный тип аргумента');
+            }
+        }
+
+        try {
+            let input = +prompt('Введите число');
+            validateInput(input);
+        } catch (error) {
+            console.log(error.message);
+        }
+        */
+
+        /*
+        // 1.6 Проброс исключения
+        // Напишите функцию, которая вызывает другую функцию, которая может выбросить исключение. Покажите, как можно пробросить это исключение выше по стеку вызовов с использованием "try...catch".
+
+        function functionCheck() {
+            try {
+                throwException();
+            } catch (error) {
+                console.log('Блок catch');
+                console.log(error.message);
+            }
+        }
+
+        function throwException() {
+            throw new Error('Выброс исключения из функции throwException()');
+        }
+
+        functionCheck();
+        */
+
+        /*
+        // 1.7 try...catch...finally
+        // Напишите функцию divideNumbers, которая принимает два аргумента - числа a и b. Функция должна попытаться выполнить деление числа a на число b и вывести результат деления в консоль. Однако, необходимо использовать "try...catch...finally" для обработки возможных ошибок и завершения операции.
+
+        function divideNumbers(a, b) {
+            try {
+                if (b === 0) {
+                    throw new Error('Ошибка деления на ноль: Деление на ноль невозможно;');
+                }
+
+                let divide = a / b;
+
+                console.log(`Результат деления: ${divide};`);
+            } catch (error) {
+                console.log(error.message);
+            } finally {
+                console.log('Операция деления завершена');
+            }
+        }
+
+        divideNumbers(10, 2);  // Результат деления: 5; Операция деления завершена
+        divideNumbers(8, 0);   // Ошибка деления на ноль: Деление на ноль невозможно; Операция деления завершена
+        divideNumbers(12, 4);  // Результат деления: 3; Операция деления завершена
+        */
+
+        /*
+        // 1.8 Глобальный catch
+        // Напишите код, который устанавливает глобальный обработчик ошибок с помощью "window.onerror". Обработчик должен выводить сообщение об ошибке в консоль с информацией о месте, где произошла ошибка.
+
+        window.onerror = function(message, source, line, column, error) {
+            console.log("Ошибка:", message);
+            console.log("Источник:", source);
+            console.log("Строка:", line);
+            console.log("Столбец:", column);
+            console.log("Ошибка:", error);
+        };
+        */
+    </script>
+</body>
+</html>
