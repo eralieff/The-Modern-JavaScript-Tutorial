@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перепишите, используя async/await</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /*
+        function loadJson(url) {
+            return fetch(url)
+                .then(response => {
+                    if (response.status == 200) {
+                        return response.json();
+                    } else {
+                        throw new Error(response.status);
+                    }
+                })
+        }
+
+        loadJson('no-such-user.json') // (3)
+            .catch(alert); // Error: 404
+        */
+
+        async function loadJson(url) {
+            const response = await fetch(url);
+
+            if (response.status == 200) {
+                const json = await response.json();
+                return json;
+            }
+            throw new Error(response.status);
+        }
+
+        loadJson('no-such-user.json') // (3)
+            .catch(alert); // Error: 404
+    </script>
+</body>
+</html>
