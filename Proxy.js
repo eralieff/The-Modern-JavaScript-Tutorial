@@ -82,3 +82,99 @@ const pp = new Proxy(Person, {
 })
 
 const p = new pp('Arman', 21);
+
+// Wrapper
+
+const withDefaultValue = (target, defaultValue = 0) => {
+    return new Proxy(target, {
+        get: (obj, p) => p in obj ? obj[p] : defaultValue
+    });
+}
+
+const position = withDefaultValue(
+    {
+        x: 24,
+        y: 42
+    },
+    0
+);
+
+console.log(position);
+console.log(position.x);
+console.log(position.y);
+console.log(position.asdf);
+
+// Hidden properties
+const withHiddenProps = (target, prefix = '_') => {
+    return new Proxy(target, {
+        has: (obj, p) => (p in obj) && (!p.startsWith(prefix)),
+        ownKeys: obj => Reflect.ownKeys(obj).filter(p => !p.startsWith(prefix)),
+        get: (obj, p, receiver) => p in receiver ? obj[p] : undefined
+    });
+}
+
+const data = withHiddenProps({
+    name: 'Berik',
+    age: 21,
+    _uid: '234124503129'
+})
+
+console.log(data);
+console.log(data.age);
+console.log(data.name);
+console.log(data._uid);
+console.log('_uid' in data);
+for (let key in data) console.log(key);
+console.log(Object.keys(data));
+
+// Optimization
+
+const userData = [
+    {id: 1, name: 'Berik', job: 'Front-end developer', age: 21},
+    {id: 2, name: 'Aizhan', job: 'UX/UI designer', age: 21},
+    {id: 3, name: 'Yelana', job: 'Student', age: 18},
+    {id: 4, name: 'Bakdaulet', job: 'Back-end developer', age: 21}
+];
+
+console.log(userData.find(user => user['id'] === 3 ? user['id'] : undefined));
+
+const index = {};
+userData.forEach(obj => index[obj.id] = obj);
+console.log(index[3]);
+
+const IndexedArray = new Proxy(Array, {
+    construct(target, [args]) {
+        console.log(target);
+        console.log(args);
+
+        const index = {};
+        args.forEach(item => index[item.id] = item);
+
+        return new Proxy(new target(...args), {
+            get(arr, p) {
+                switch (p) {
+                    case 'push':
+                        return item => {
+                            index[item.id] = item;
+                            arr['push'].call(arr, item);
+                        }
+                    case 'findById':
+                        return id => index[id];
+                    default:
+                        return arr[p];
+                }
+            }
+        });
+    }
+})
+
+const users = new IndexedArray(userData);
+console.log(users);
+
+console.log(users[0]);
+console.log(users[1]);
+
+users.push({id: 412, name:'Syrym'});
+
+console.log(users[4]);
+console.log(users.findById(412));

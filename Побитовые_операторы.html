@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Побитовые операторы</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // let inputNumber = prompt('Введите двоичное число:');
+
+        // let parse2_to_10 = parseInt(inputNumber, 2);
+        // alert(parse2_to_10);
+
+        // let parse10_to_2 = parse2_to_10.toString(2);
+        // alert(parse10_to_2);
+
+        let resultAND = 14 & 9;
+        alert(`${Number(14).toString(2)}\n${Number(9).toString(2)}\n${resultAND.toString(2)}`);
+
+        let resultOR = 14 | 9;
+        alert(`${Number(14).toString(2)}\n${Number(9).toString(2)}\n${resultOR.toString(2)}`);
+
+        let resultXOR = 14 ^ 9;
+        alert(`${Number(14).toString(2)}\n${Number(9).toString(2)}\n${resultXOR.toString(2)}`);
+        
+        let resultNOT = ~9;
+        alert(`${Number(9).toString(2)}\n${Number(resultNOT).toString(2)}`);
+
+        let resultLeftShift = 9 << 4;
+        alert(`${Number(9).toString(2)}\n${resultLeftShift.toString(2)}`);
+
+        let resultRightShift = 9 >> 2;
+        alert(`${Number(9).toString(2)}\n${resultRightShift.toString(2)}`);
+
+        let resultRightShiftZero = 9 >> 2;
+        alert(`${Number(9).toString(2)}\n${resultRightShiftZero.toString(2)}`);
+    </script>
+</body>
+</html>
