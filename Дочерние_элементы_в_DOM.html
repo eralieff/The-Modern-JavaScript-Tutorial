@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дочерние элементы в DOM</title>
+</head>
+<body>
+    <div>Пользователи:</div>
+    <ul>
+        <li>Джон</li>
+        <li>Пит</li>
+    </ul>
+
+    <script>
+        alert(document.body.firstElementChild);
+        alert(document.body.children[1]);
+        alert(document.body.children[1].lastElementChild);
+    </script>
+</body>
+</html>
