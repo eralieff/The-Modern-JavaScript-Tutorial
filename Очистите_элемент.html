@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Очистите элемент</title>
+</head>
+<body>
+    <ol id="elem">
+        <li>Привет</li>
+        <li>Мир</li>
+    </ol>
+      
+    <script>
+        function clear(elem) {
+            while (elem.firstChild) {
+                elem.firstChild.remove();
+            }
+        }
+      
+        clear(elem);
+    </script>
+</body>
+</html>

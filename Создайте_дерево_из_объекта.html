@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создайте дерево из объекта</title>
+</head>
+<body>
+    <script>
+        let data = {
+            "Рыбы": {
+                "форель": {},
+                "лосось": {}
+            },
+
+            "Деревья": {
+                "Огромные": {
+                    "секвойя": {},
+                    "дуб": {}
+                },
+                "Цветковые": {
+                    "яблоня": {},
+                    "магнолия": {}
+                }
+            }
+        };
+
+        let div = document.createElement('div');
+        div.setAttribute('id', 'container');
+        document.body.append(div);
+
+        let container = document.getElementById('container');
+        createTree(container, data); // создаёт дерево в контейнере
+
+        function createTree(element, obj) {
+            for (let key in obj) {
+                if (typeof obj[key] === "object" && Object.keys(obj[key]).length > 0) {
+                    let ul = document.createElement('ul');
+                    element.append(ul);
+                    let li = document.createElement('li');
+                    li.textContent = key;
+                    ul.append(li);
+                    ul.append(document.createElement('ul'));
+                    createTree(ul, obj[key]);
+                } else {
+                    let li = document.createElement('li');
+                    li.textContent = key;
+                    element.lastElementChild.append(li);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

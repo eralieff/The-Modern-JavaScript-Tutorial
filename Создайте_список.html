@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создайте список</title>
+</head>
+<body>
+    <h1>Создать список</h1>
+
+    <script>
+        'use strict';
+
+        let arrData = [];
+        let ul = document.createElement('ul');
+        document.body.append(ul);
+
+        while (true) {
+            let input = prompt('Введите текст для элемента списка');
+
+            if (input === '' || input === null) {
+                break;
+            }
+            arrData.push(input);
+        }
+
+        for (let i = 0; i < arrData.length; i++) {
+            let li = document.createElement('li');
+            li.textContent = arrData[i];
+            document.body.lastChild.append(li);
+        }
+    </script>
+</body>
+</html>
