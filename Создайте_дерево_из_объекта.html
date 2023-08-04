@@ -5,6 +5,8 @@
     <title>Создайте дерево из объекта</title>
 </head>
 <body>
+    <div id="tree"></div>
+
     <script>
         let data = {
             "Рыбы": {
@@ -24,11 +26,7 @@
             }
         };
 
-        let div = document.createElement('div');
-        div.setAttribute('id', 'container');
-        document.body.append(div);
-
-        let container = document.getElementById('container');
+        let container = document.getElementById('tree');
         createTree(container, data); // создаёт дерево в контейнере
 
         function createTree(element, obj) {

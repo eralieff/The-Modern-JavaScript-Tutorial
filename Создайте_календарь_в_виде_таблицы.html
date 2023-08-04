@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создайте календарь в виде таблицы</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    
+        td,
+        th {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center;
+        }
+    
+        th {
+            font-weight: bold;
+            background-color: #E6E6E6;
+        }
+      </style>
+</head>
+<body>
+    <div id="calendar"></div>
+
+    <script>
+        'use strict';
+
+        function createCalendar(elem, year, month) {
+            let table = document.createElement('table');
+            let tbody = document.createElement('tbody');
+            elem.append(table);
+            table.append(tbody);
+
+            let tr = document.createElement('tr');
+            tbody.append(tr);
+
+            let days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+            for (let i = 0; i < 7; i++) {
+                let th = document.createElement('th');
+                tr.append(th);
+                th.textContent = days[i];
+            }
+
+            const getDaysInMonth = new Date(year, month, 0).getDate();
+            
+            function getDayOfWeek(dayOfWeek) {
+                return new Date(year, month - 1, dayOfWeek).toLocaleString('ru', { weekday: 'short' });
+            }
+
+            let day = 1;
+            let dayOfWeek = 1;
+            let i = 0;
+
+            outer: while (day <= getDaysInMonth) {
+                let trForTd = document.createElement('tr');
+                tbody.append(trForTd);
+                for (let i = 0; i < 7; i++) {
+                    if (day === getDaysInMonth + 1) {
+                        let td = document.createElement('td');
+                        trForTd.append(td);
+                        if (i == 6) {
+                            break outer;
+                        }
+                    } else if (tr.children[i].firstChild.data == getDayOfWeek(dayOfWeek)) {
+                        let td = document.createElement('td');
+                        trForTd.append(td);
+                        td.textContent = day;
+                        day++;
+                        dayOfWeek++;
+                    } else {
+                        let td = document.createElement('td');
+                        trForTd.append(td);
+                    }
+                }
+            }
+        }
+
+        createCalendar(calendar, 2012, 9);
+    </script>
+</body>
+</html>

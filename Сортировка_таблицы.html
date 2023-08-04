@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортировка таблицы</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th><th>Surname</th><th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td><td>Smith</td><td>10</td>
+            </tr>
+            <tr>
+                <td>Pete</td><td>Brown</td><td>15</td>
+            </tr>
+            <tr>
+                <td>Ann</td><td>Lee</td><td>5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        'use strict';
+        
+        function Person(name, surname, age) {
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+        }
+
+        let persons = [];
+        let trCollection = document.querySelector('table tbody').children;
+
+        for (let i = 0; i < trCollection.length; i++) {
+            let userInfo = trCollection[i].children;
+            let parseUserInfo = [];
+            for (let j = 0; j < userInfo.length; j++) {
+                parseUserInfo.push(userInfo[j].textContent);
+            }
+            persons.push(new Person(parseUserInfo[0], parseUserInfo[1], parseUserInfo[2]));
+        }
+
+        persons.sort((a, b) => a.name < b.name ? -1 : 1);
+        
+        for (let i = 0; i < trCollection.length; i++) {
+            let userInfo = trCollection[i].children;
+            userInfo[0].textContent = persons[i].name;
+            userInfo[1].textContent = persons[i].surname;
+            userInfo[2].textContent = persons[i].age;
+        }
+
+    </script>
+</body>
+</html>
