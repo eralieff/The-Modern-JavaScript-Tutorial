@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поместите мяч в центр поля</title>
+    <style>
+        #field {
+            width: 200px;
+            border: 10px groove black;
+            background-color: #00FF00;
+            position: relative;
+        }
+    
+        #ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="field">
+        <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <script>
+        'use strict';
+
+        let avgWidthField = field.clientWidth / 2;
+        let avgHeightField = field.clientHeight / 2;
+        let avgWidthBall = ball.offsetWidth / 2;
+        let avgHeightBall = ball.offsetHeight / 2;
+        
+        ball.style.left = Math.round(avgWidthField - avgWidthBall) + 'px';
+        ball.style.top = Math.round(avgHeightField - avgHeightBall) + 'px';
+    </script>
+</body>
+</html>
