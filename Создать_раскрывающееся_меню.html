@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать раскрывающееся меню</title>
+    <style>
+        div {
+            display: inline;
+            cursor: pointer;
+        }
+
+        span {
+            color: green;
+        }
+
+        .nonActive {
+            display: none;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        ul > li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="menuTitle"><span id="closeMenu">▶ </span><span id="openMenu" class="nonActive">▼ </span>Сладости (нажми меня)!</div>
+    <ul class="nonActive">
+        <li>Пирожное</li>
+        <li>Пончик</li>
+        <li>Мёд</li>
+    </ul>
+
+    <script>
+        'use strict';
+
+        let menuTitle = document.getElementById('menuTitle');
+        let closeMenu = document.getElementById('closeMenu');
+        let openMenu = document.getElementById('openMenu');
+        let menuList = document.getElementsByTagName('ul')[0];
+
+        menuTitle.addEventListener('click', () => {
+            closeMenu.classList.toggle('nonActive');
+            openMenu.classList.toggle('nonActive');
+            menuList.classList.toggle('nonActive');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скрыть элемент по нажатию кнопки</title>
+</head>
+<body>
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+
+    <div id="text">Текст</div>
+  
+    <script>
+        document.getElementById('hider').addEventListener('click', () => document.getElementById('text').hidden = true);
+    </script>
+</body>
+</html>
