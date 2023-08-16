@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Почему не работает return false?</title>
+</head>
+<body>
+    <a href="https://w3.org" onclick="handler(event)">браузер откроет w3.org</a>
+
+    <script>
+        'use strict';
+
+        function handler(event) {
+            alert( "..." );
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>
