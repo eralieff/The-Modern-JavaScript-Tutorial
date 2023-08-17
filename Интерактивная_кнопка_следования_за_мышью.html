@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная кнопка следования за мышью</title>
+    <style>
+        /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        } */
+      
+        .follow-button {
+            background-color: #4393fc;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+      
+        .follow-button:hover {
+            background-color: #1c7eff;
+        }
+    </style>
+</head>
+<body>
+    <button class="follow-button">Follow</button>
+
+    <script>
+        'use strict';
+
+        const button = document.querySelector('.follow-button');
+
+        button.addEventListener('mouseenter', () => {
+            button.style.transition = 'none'; // Remove transition during mouseover
+            moveButton();
+        });
+
+        button.addEventListener('mousemove', moveButton);
+
+        button.addEventListener('mouseleave', () => {
+            button.style.transition = 'transform 0.3s ease'; // Restore transition on mouseout
+            button.style.transform = 'translate(0, 0)';
+        });
+
+        function moveButton(event) {
+            const offsetX = 10; // You can adjust these values for the desired offset
+            const offsetY = -10;
+            const x = event ? event.clientX : 0; // Get current mouse X position
+            const y = event ? event.clientY : 0; // Get current mouse Y position
+            button.style.transform = `translate(${x + offsetX}px, ${y + offsetY}px)`; // Move the button
+        }
+    </script>
+</body>
+</html>
