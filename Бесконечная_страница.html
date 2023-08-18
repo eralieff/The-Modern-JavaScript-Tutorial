@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бесконечная страница</title>
+    <style>
+        body {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Прокрути меня</h1>
+
+    <script>
+        'use strict';
+
+        function populate() {
+            while(true) {
+                let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+                if (windowRelativeBottom > document.documentElement.clientHeight + 100) break;
+                document.body.insertAdjacentHTML("beforeend", `<p>Date: ${new Date()}</p>`);
+            }
+        }
+
+        window.addEventListener('scroll', populate);
+
+        populate(); // инициализация документа
+    </script>
+</body>
+</html>
