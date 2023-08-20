@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактируемый div</title>
+    <style>
+        .view,
+        .edit {
+            height: 150px;
+            width: 400px;
+            font-family: sans-serif;
+            font-size: 14px;
+            display: block;
+        }
+
+        .view {
+            /* padding + border = 3px */
+            padding: 2px;
+            border: 1px solid black;
+        }
+
+        .edit {
+            /* замена внутреннего отступа рамкой (по-прежнему 3px, и содержимое не смещается) */
+            border: 3px solid blue;
+            padding: 0px;
+        }
+
+        .edit:focus {
+            /* удаление обводки фокуса в Safari */
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Кликните на div ниже, чтобы отредактировать текст.</li>
+        <li>Нажатие на Enter или потеря фокуса с ввода сохранят содержимое.</li>
+    </ul>
+
+    HTML-код разрешён.
+
+    <div id="view" class="view">Текст</div>
+
+    <script>
+        'use strict';
+
+        let textarea = null;
+        let view = document.getElementById('view');
+        
+        view.onclick = function() {
+            textarea = document.createElement('textarea');
+            textarea.className = 'edit';
+            textarea.value = view.textContent;
+            view.replaceWith(textarea);
+            textarea.focus();
+
+            textarea.onkeydown = function(event) {
+                if (event.key == 'Enter') {
+                    this.blur();
+                }
+            }
+
+            textarea.onblur = function() {
+                view.textContent = textarea.value;
+                textarea.replaceWith(view);
+            }
+        }
+    </script>
+</body>
+</html>
