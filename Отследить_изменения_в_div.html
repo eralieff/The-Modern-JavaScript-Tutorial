@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отследить изменения в div</title>
+</head>
+<body>
+    <div id='elem'></div>
+
+    <script>
+        'use strict';
+
+        function randomInteger(min, max) {
+            let rand = min + Math.random() * (max + 1 - min);
+            return Math.floor(rand);
+        };
+
+        let list = ['рыба', 'мясо', 'трава', 'планета', 'космос'];
+
+        setInterval(function() {
+            let elem = document.getElementById('elem');
+            elem.textContent = list[randomInteger(0, list.length - 1)]
+        }, 3000);
+
+        let observer = new MutationObserver(function(mutations) {
+            mutations.forEach(mutation => {console.log(
+                `Удалено ${(mutation.removedNodes[0].data.toString().trim() || "Ничего")}
+                Добавлено ${mutation.addedNodes[0].data}`
+                ); 
+            });
+        });  
+ 
+        observer.observe(elem, {
+            childList:true,
+        });
+    </script>
+</body>
+</html>
